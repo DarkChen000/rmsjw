@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="sr()">发送请求</button>
+<button onclick="sr2()">jquery发送AJAX请求</button>
+<h1 id="hh">这里的文本会改变</h1>
+</body>
+<script src="js/jquery-3.3.1.js"></script>
+<script>
+    function sr() {
+        var xmlRequest = new XMLHttpRequest();
+        xmlRequest.onreadystatechange = function (){
+            if (this.readyState === 4 && this.status === 200){
+                document.getElementById("hh").innerHTML = this.responseText;
+            }
+        };
+        xmlRequest.open("get","/a",true);
+        xmlRequest.send();
+    }
+
+    function sr2() {
+        // $("#hh").load("/a")
+
+        // $.get("/a",function (d) {
+        //     alert("Data:" + d);
+        // });
+
+        $.post("")
+    }
+</script>
+</html>
